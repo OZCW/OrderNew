@@ -1,7 +1,7 @@
 package com.scuffeddev.OrderNew.order;
 
 
-import com.scuffeddev.OrderNew.bookClient.BookEntity;
+import com.scuffeddev.OrderNew.book.BookEntity;
 import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
@@ -25,19 +25,9 @@ public class OrderEntity {
     private double totalAmount;
     @CreationTimestamp
     private LocalDate orderDate;
-    @ManyToMany
-    @JoinTable(
-            name = "order_book",
-            joinColumns = @JoinColumn(name = "order_id"),
-            inverseJoinColumns = @JoinColumn(name = "book_id"))
-    List<BookEntity> orderedBooks;
+    @ElementCollection
+    private List<Long> bookIds;
+    @Transient
+    private List<BookEntity> books;
 
-    @Override
-    public String toString() {
-        return getClass().getSimpleName() + "(" +
-                "id = " + id + ", " +
-                "userId = " + userId + ", " +
-                "totalAmount = " + totalAmount + ", " +
-                "orderDate = " + orderDate + ")";
-    }
 }

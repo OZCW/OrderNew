@@ -1,4 +1,4 @@
-package com.scuffeddev.OrderNew.bookClient;
+package com.scuffeddev.OrderNew.book;
 
 public record BookEntity(Long id,
                          String title,

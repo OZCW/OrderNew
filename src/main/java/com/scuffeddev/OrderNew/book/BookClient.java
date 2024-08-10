@@ -1,4 +1,4 @@
-package com.scuffeddev.OrderNew.bookClient;
+package com.scuffeddev.OrderNew.book;
 
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PathVariable;
